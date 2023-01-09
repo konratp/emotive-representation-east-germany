@@ -21,10 +21,10 @@ library(readxl)
 
 ```{r load-data, message = F}
 #load data
-speeches <- read_csv("data/speeches.csv")
-politicians <- read_csv("data/politicians.csv")
-factions <- read_csv("data/factions.csv")
-cities <- read_excel("data/german_cities2.xlsx", 
+speeches <- read_csv("../data/speeches.csv")
+politicians <- read_csv("../data/politicians.csv")
+factions <- read_csv("../data/factions.csv")
+cities <- read_excel("../data/german_cities2.xlsx", 
                      sheet = "Onlineprodukt_Gemeinden", 
                      skip = 3)
 ```

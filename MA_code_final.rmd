@@ -240,7 +240,7 @@ bundesland_df <- inner_join(bundesland_df,
 
 ## Regression Analysis
 
-
+The following code centers around linear regression analysis of relative sentiment scores, i.e. the difference between a lawmakers average sentiment towards a given topic and a lawmakers overall/baseline average sentiment scores per electoral term. First, I select and factorize relevant independent and dependent variables and normalize average sentiment scores per term. In a second step, I run heteroskedasticity-robust linear regression analyses, once using `party` as an independent variables, and once using `partygroup` as an independent variable, grouping together all "mainstream" parties and testing the effects on the extreme right and left. These steps are first performed on the group of keywords pertaining to the GDR and its institutions, and then repeated on keywords relating to East Germany as a region and East German *Bundesländer*.
 
 ```{r regression-preparation}
 #subset full data to include one row per mp-session
@@ -416,6 +416,8 @@ model_pgbundesland_robust_clustered
 ```
 
 ## Descriptive Statistics
+
+In this final step, I calculate descriptive statistics both overall and per keyword group. These include, but are not limited to, the amount of speeches for each keyword group, the amount of speeches by party or birthplace, as well as the different distributions of relative sentiment scores by party and birthplace.
 
 ```{r descriptive-statistics}
 #number of speeches by party

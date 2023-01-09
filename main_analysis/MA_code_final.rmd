@@ -9,7 +9,7 @@ output: pdf_document
 
 ## Introduction
 
-The following contains the majority of the code supporting my M.A. thesis, submitted to the University of Chicago's Division of the Social Sciences. In my thesis, I conduct a sentiment analysis of all speeches given in the German *Bundestag* since German reunification in 1990. The question underlying this thesis is whether or not there are meaningful differences in the sentiments with which members of the German *Bundestag* (hereafter referred to as MdB) refer to East Germany as a region as well as its communist past and the institutions of the German Democratic Republic (GDR). **SOME MORE SENTENCES ABOUT HOW THE CODE IS STRUCTURED** Please note that in order to run the code below, you have to first run the data cleaning and preprocessing steps laid out [here](ma_thesis_data_cleaning.Rmd) and import the resulting data frame here using `read_csv()`. Furthermore, in order to read in the SentiMerge sentiment dictionary I use for the purposes of this research, you need to download its contents [here](https://github.com/guyemerson/SentiMerge/blob/master/data/sentimerge.txt). If you have trouble accessing any of the data or questions about the code, feel free to email me at [kpekkip@uchicago.edu](mailto:kpekkip@uchicago.edu).
+The following contains the majority of the code supporting my M.A. thesis, submitted to the University of Chicago's Division of the Social Sciences in July of 2022. In my thesis, I conduct a sentiment analysis of all speeches given in the German *Bundestag* since German reunification in 1990. The question underlying this thesis is whether or not there are meaningful differences in the sentiments with which members of the German *Bundestag* (hereafter referred to as MdB) refer to East Germany as a region, its communist past, and the institutions of the German Democratic Republic (GDR). Please note that in order to run the code below, you have to first run the data cleaning and preprocessing steps laid out [here](../ma_thesis_data_cleaning.Rmd) and import the resulting data frame, `full_data.csv`. Furthermore, in order to read in the SentiMerge sentiment dictionary I use for the purposes of this research, you need to download its contents [here](https://github.com/guyemerson/SentiMerge/blob/master/data/sentimerge.txt). If you have trouble accessing any of the data or if you have any questions about the code, feel free to reach out to me at [kpekkip@uchicago.edu](mailto:kpekkip@uchicago.edu).
 
 ### Loading Packages and Data
 
@@ -35,7 +35,7 @@ library(psych)
 
 ```{r load-data, message = F}
 #load preprocessed and cleaned data frame
-full_data <- read_csv("data/full_data.csv")
+full_data <- read_csv("../data/full_data.csv")
 
 #subset only metadata
 speeches_meta <- full_data %>%
@@ -45,7 +45,7 @@ speeches_meta <- full_data %>%
 
 ```{r load-sentiment-dictionary}
 #load sentiment dictionary
-sentiment_dict <- read.delim("data/sentimerge.txt") %>%
+sentiment_dict <- read.delim("../data/sentimerge.txt") %>%
   rename(word = lemma) %>%
   mutate(sentweight = sentiment * weight)
 
